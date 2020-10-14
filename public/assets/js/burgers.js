@@ -28,9 +28,10 @@ $(function () {
         event.preventDefault();
 
         var newburger = {
-            name: $("#ca").val().trim(),
-            devoured: $("[name=devoured]:checked").val().trim()
+            name: $("#ca").val().trim()
         };
+
+        console.log(newburger);
 
         // Send the POST request.
         $.ajax("/api/burgers", {
@@ -45,18 +46,18 @@ $(function () {
         );
     });
 
-    $(".delete-burger").on("click", function (event) {
-        var id = $(this).data("id");
+    // $(".delete-burger").on("click", function (event) {
+    //     var id = $(this).data("id");
 
-        // Send the DELETE request.
-        $.ajax("/api/burgers/" + id, {
-            type: "DELETE"
-        }).then(
-            function () {
-                console.log("deleted burger", id);
-                // Reload the page to get the updated list
-                location.reload();
-            }
-        );
-    });
+    //     // Send the DELETE request.
+    //     $.ajax("/api/burgers/" + id, {
+    //         type: "DELETE"
+    //     }).then(
+    //         function () {
+    //             console.log("deleted burger", id);
+    //             // Reload the page to get the updated list
+    //             location.reload();
+    //         }
+    //     );
+    // });
 });
